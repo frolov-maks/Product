@@ -11,12 +11,24 @@ public class Main {
         double baseCost = costBase.calcCost(product);
         CalcCostDelivery costDelivery = new CalcCostDelivery();
         double deliveryCost = costDelivery.calcCost(product);
-        String baseOutput = product + "\nCost is " +
-                Constants.CURRENCY + " " + baseCost + ".";
-        String deliveryOutput = product + "\nCost is " +
-                Constants.CURRENCY + " " + deliveryCost + ".";
-        getOutput(baseOutput);
-        getOutput(deliveryOutput);
+        StringBuilder baseBuilder = new StringBuilder();
+        baseBuilder.append(product)
+                .append("\nCost is ")
+                .append(Constants.CURRENCY)
+                .append(" ")
+                .append(baseCost)
+                .append(".");
+
+        StringBuilder deliveryBuilder = new StringBuilder();
+        deliveryBuilder.append(product)
+                .append("\nCost is ")
+                .append(Constants.CURRENCY)
+                .append(" ")
+                .append(deliveryCost)
+                .append(".");
+
+        getOutput(baseBuilder.toString());
+        getOutput(deliveryBuilder.toString());
     }
 
     public static String[] getData() {
